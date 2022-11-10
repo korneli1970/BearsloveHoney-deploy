@@ -32,12 +32,12 @@ app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/contact", contactRoute);
 
+app.use(errorHandler);
+app.use(notFound);
+
 app.get("*", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
-
-app.use(errorHandler);
-app.use(notFound);
 
 const port = process.env.PORT || 5002;
 
